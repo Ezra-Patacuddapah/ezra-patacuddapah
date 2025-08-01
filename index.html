@@ -9,63 +9,150 @@
         margin: 0;
         font-family: sans-serif;
       }
+
+      .toggle-theme {
+        color: white;
+        background-color: black;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 10px;
+        position: relative;
+      }
+
+      .container nav button {
+        color: inherit;
+      }
+
+      header,
+      nav ul {
+        display: flex;
+        align-items: center;
+      }
+
+      header {
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        align-items: center;
+        left: 10px;
+        right: 10px;
+        margin: 0 auto;
+      }
+
+      nav li {
+        margin-left: 4px;
+        list-style: none;
+        border: 1px solid;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        text-transform: uppercase;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      nav button {
+        font-size: inherit;
+        border: none;
+        background-color: inherit;
+        padding: 0;
+        text-transform: inherit;
+        cursor: pointer;
+      }
+
+      main {
+        margin-top: 20vh;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      section {
+        height: 100vh;
+        scroll-margin-top: 20vh;
+      }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Ezra Patacuddapah</h1>
-      <nav>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Skills</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><button>Theme</button></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>About</h2>
-        <p>
-          Hi, my name is Ezra. I am a front end developer. I speak English and
-          Russian. I live in Moscow, Russia. My hobbies are listening to music
-          and Radio dramas, reading books and doing research on lifestyle and
-          about the life.
-        </p>
-      </section>
-      <section>
-        <h2>Skills</h2>
-        <p>I use and love the following technologies</p>
-        <h3>Technology Stack</h3>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JS</li>
-          <li>React</li>
-          <li>TypeScript</li>
-          <li>Tailwind CSS</li>
-          <li>Next.js</li>
-          <li>Node.js</li>
-        </ul>
-        <h3>Tools</h3>
-        <ul>
-          <li>VS Code</li>
-          <li>Git</li>
-          <li>GitHub</li>
-          <li>Vercel</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Contact</h2>
-        <address>
-          <a href="mailto:ezrapatacuddapah@gmail.com">ezrapatacuddapah@gmail.com</a>
-          <br />
-          <a href="tel:_79778667419">+7 977 866 74 19</a>
-        </address>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Ezra</p>
-    </footer>
+    <div class="container">
+      <header>
+        <h1>Ezra</h1>
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button onclick="toggleTheme()">Theme</button></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            Hi, my name is Ezra. I am a front end developer. I speak English and
+            Russian. I live in Moscow, Russia. My hobbies are listening to music
+            and Radio dramas, reading books and doing research on lifestyle and
+            about the life.
+          </p>
+        </section>
+        <section id="skills">
+          <h2>Skills</h2>
+          <p>I use and love the following technologies</p>
+          <h3>Technology Stack</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Tailwind CSS</li>
+            <li>Next.js</li>
+            <li>Node.js</li>
+          </ul>
+          <h3>Tools</h3>
+          <ul>
+            <li>VS Code</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>Vercel</li>
+          </ul>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <address>
+            <a href="mailto:ezrapatacuddapah@gmail.com"
+              >ezrapatacuddapah@gmail.com</a
+            >
+            <br />
+            <a href="tel:_79778667419">+7 977 866 74 19</a>
+          </address>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2025 Ezra</p>
+      </footer>
+    </div>
+    <script>
+      const bodyEl = document.querySelector("body");
+
+      function toggleTheme() {
+        bodyEl.classList.toggle("toggle-theme");
+      }
+    </script>
   </body>
 </html>
