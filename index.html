@@ -1,195 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ezra Patacuddapah</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezra Patacuddapah - Front-End Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7e22ce;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
 
-      body {
-        margin: 0;
-        font-family: sans-serif;
-        background-color: #192428;
-        color: #bddfeb;
-      }
-      
-      .toggle-theme {
-        background-color: #bddfeb;
-        color: #192428;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      .toggle-theme header {
-        background-color: #bddfeb;
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            transition: var(--transition);
+        }
 
-      .container {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 0 10px;
-        position: relative;
-      }
+        body.dark-mode {
+            --dark: #f8fafc;
+            --light: #0f172a;
+            --gray: #cbd5e1;
+            --gray-light: #1e293b;
+        }
 
-      .container nav button {
-        color: inherit;
-      }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-      header,
-      nav ul {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-      }
+        /* Header & Navigation */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-      header {
-        justify-content: space-between;
-        position: fixed;
-        top: 0;
-        align-items: center;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        background-color: #192428;
-        padding: 3px 6px;
-      }
+        body.dark-mode header {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
 
-      nav {
-        margin-right: 3px;
-      }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-      nav li, address a {
-        margin-left: 5px;
-        list-style: none;
-        border: 1px solid;
-        padding: 3px 6px;
-        border-radius: 4px;
-      }
-      
-      /* nav li {
-        font-size: 1.5rem;
-      } */
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-      h1 {
-        margin: 0;
-      }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-      h1,
-      h2 {
-        text-transform: uppercase;
-      }
+        .nav-links li {
+            margin-left: 30px;
+        }
 
-      nav a, address a {
-        text-decoration: none;
-        color: inherit;
-      }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-      nav button {
-        font-size: inherit;
-        border: none;
-        background-color: inherit;
-        padding: 0;
-        cursor: pointer;
-      }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-      main {
-        margin-top: 11vh;
-      }
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+            cursor: pointer;
+            color: var(--dark);
+            transition: var(--transition);
+        }
 
-      h2 {
-        text-align: center;
-      }
+        .language-switcher:hover {
+            color: var(--primary);
+        }
 
-      section {
-        height: 100vh;
-        scroll-margin-top: 11vh;
-        margin: 0 30px;
-      }
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+            margin-left: 20px;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
 
-      p {
-        line-height: 2;
-    }
-    
-    p, address {
-        margin-top: 40px;
-      }
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
 
-      footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--dark);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .skills {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: var(--gray-light);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .project-card {
+            background: var(--gray-light);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            background: linear-gradient(120deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tech span {
+            background: var(--gray-light);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .contact-form {
+            background: var(--gray-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-light);
+            border-radius: 5px;
+            background: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--light);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Езра</h1>
-        <nav>
-          <ul>
-            <li><a href="#about">Обо мне</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#contact">Контакт</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <section id="about">
-          <h2>Обо мне</h2>
-          <p>
-            Привет, меня зовут <strong>Eзра</strong>. Я фронтенд-разработчик. Я говорю по-английски и
-по-русски. Живу в Москве, Россия. Увлекаюсь музыкой,
-и радиопостановками, чтением книг и исследованиями образа жизни и
-о жизни.
-          </p>
-        </section>
-        <section id="skills">
-          <h2>Навыки</h2>
-          <p>Я использую и люблю следующие <em>технологии</em></p>
-          <h3>Технологический стек</h3>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>Tailwind CSS</li>
-            <li>Next.js</li>
-            <li>Node.js</li>
-          </ul>
-          <h3>Инструменты</h3>
-          <ul>
-            <li>VS Code</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Vercel</li>
-          </ul>
-        </section>
-        <section id="contact">
-          <h2>Контакт</h2>
-          <address>
-            <a href="mailto:ezrapatacuddapah@gmail.com"
-              >ezrapatacuddapah@gmail.com</a
-            >
-            <br />
-            <br />
-            <a href="tel:_79778667419">+7 977 866 74 19</a>
-          </address>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; 2025 Ezra Eзра</p>
-        <button onclick="toggleTheme()">&#127763;</button>
-      </footer>
-    </div>
-    <script>
-      const bodyEl = document.querySelector("body");
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Ezra.dev</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="language-switcher" id="languageSwitcher">
+                        <i class="fas fa-globe"></i>
+                        <span>EN</span>
+                    </li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-      function toggleTheme() {
-        bodyEl.classList.toggle("toggle-theme");
-      }
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Ezra Patacuddapah</h1>
+            <p>Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.</p>
+            <div class="btn-container">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creating digital experiences that matter</h3>
+                    <p>Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.</p>
+                    <p>My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.</p>
+                    <p>I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.</p>
+                </div>
+                <div class="skills">
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">React</span>
+                    <span class="skill">TypeScript</span>
+                    <span class="skill">Tailwind CSS</span>
+                    <span class="skill">Next.js</span>
+                    <span class="skill">Responsive Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Store</h3>
+                        <p>A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.</p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>Firebase</span>
+                            <span>CSS Modules</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Movie Discovery App</h3>
+                        <p>An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Redux</span>
+                            <span>TMDB API</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:ezrapatacuddapah@gmail.com">ezrapatacuddapah@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <a href="tel:+79778667419">+7 977 866 74 19</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Moscow, Russia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">Ezra.dev</a>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-codepen"></i></a>
+                </div>
+                <p class="copyright">© 2023 Ezra Patacuddapah. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Language Switcher (placeholder functionality)
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        const languageText = languageSwitcher.querySelector('span');
+        
+        languageSwitcher.addEventListener('click', () => {
+            if (languageText.textContent === 'EN') {
+                languageText.textContent = 'RU';
+                // Here you would typically implement actual language switching
+                alert('Russian version coming soon! This would toggle the site content between English and Russian.');
+            } else {
+                languageText.textContent = 'EN';
+                alert('Switching back to English!');
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thanks for your message! This form is a demo and doesn\'t actually send emails.');
+            contactForm.reset();
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    navLinks.classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
