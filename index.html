@@ -483,10 +483,10 @@
             <nav>
                 <a href="#" class="logo">Ezra.dev</a>
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" data-i18n="nav.about">About</a></li>
+                    <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                     <li class="language-switcher" id="languageSwitcher">
                         <i class="fas fa-globe"></i>
                         <span>EN</span>
@@ -507,11 +507,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Ezra Patacuddapah</h1>
-            <p>Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.</p>
+            <h1 data-i18n="hero.title">Ezra Patacuddapah</h1>
+            <p data-i18n="hero.subtitle">Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.</p>
             <div class="btn-container">
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="#projects" class="btn" data-i18n="hero.projectsBtn">View My Work</a>
+                <a href="#contact" class="btn btn-outline" data-i18n="hero.contactBtn">Contact Me</a>
             </div>
         </div>
     </section>
@@ -519,13 +519,13 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Creating digital experiences that matter</h3>
-                    <p>Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.</p>
-                    <p>My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.</p>
-                    <p>I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.</p>
+                    <h3 data-i18n="about.subtitle">Creating digital experiences that matter</h3>
+                    <p data-i18n="about.p1">Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.</p>
+                    <p data-i18n="about.p2">My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.</p>
+                    <p data-i18n="about.p3">I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.</p>
                 </div>
                 <div class="skills">
                     <span class="skill">HTML</span>
@@ -535,7 +535,7 @@
                     <span class="skill">TypeScript</span>
                     <span class="skill">Tailwind CSS</span>
                     <span class="skill">Next.js</span>
-                    <span class="skill">Responsive Design</span>
+                    <span class="skill" data-i18n="about.skill1">Responsive Design</span>
                 </div>
             </div>
         </div>
@@ -544,21 +544,21 @@
     <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="section-title" data-i18n="projects.title">My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
-                        <h3>E-Commerce Store</h3>
-                        <p>A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.</p>
+                        <h3 data-i18n="projects.project1.title">E-Commerce Store</h3>
+                        <p data-i18n="projects.project1.desc">A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.</p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>TypeScript</span>
                             <span>Tailwind CSS</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -566,14 +566,14 @@
                         <i class="fas fa-tasks"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Task Management App</h3>
-                        <p>A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.</p>
+                        <h3 data-i18n="projects.project2.title">Task Management App</h3>
+                        <p data-i18n="projects.project2.desc">A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.</p>
                         <div class="project-tech">
                             <span>Next.js</span>
                             <span>Firebase</span>
                             <span>CSS Modules</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -581,14 +581,14 @@
                         <i class="fas fa-film"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Movie Discovery App</h3>
-                        <p>An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.</p>
+                        <h3 data-i18n="projects.project3.title">Movie Discovery App</h3>
+                        <p data-i18n="projects.project3.desc">An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.</p>
                         <div class="project-tech">
                             <span>React</span>
                             <span>Redux</span>
                             <span>TMDB API</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
                     </div>
                 </div>
             </div>
@@ -598,7 +598,7 @@
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -606,7 +606,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Email</h4>
+                            <h4 data-i18n="contact.email">Email</h4>
                             <a href="mailto:ezrapatacuddapah@gmail.com">ezrapatacuddapah@gmail.com</a>
                         </div>
                     </div>
@@ -615,7 +615,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Phone</h4>
+                            <h4 data-i18n="contact.phone">Phone</h4>
                             <a href="tel:+79778667419">+7 977 866 74 19</a>
                         </div>
                     </div>
@@ -624,7 +624,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Location</h4>
+                            <h4 data-i18n="contact.location">Location</h4>
                             <p>Moscow, Russia</p>
                         </div>
                     </div>
@@ -632,18 +632,18 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name" data-i18n="contact.form.name">Name</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email" data-i18n="contact.form.email">Email</label>
                             <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message" data-i18n="contact.form.message">Message</label>
                             <textarea id="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn" data-i18n="contact.form.send">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -661,12 +661,99 @@
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-codepen"></i></a>
                 </div>
-                <p class="copyright">© 2023 Ezra Patacuddapah. All rights reserved.</p>
+                <p class="copyright">© 2023 Ezra Patacuddapah. <span data-i18n="footer.rights">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language data
+        const translations = {
+            en: {
+                "nav.about": "About",
+                "nav.skills": "Skills",
+                "nav.projects": "Projects",
+                "nav.contact": "Contact",
+                "hero.title": "Ezra Patacuddapah",
+                "hero.subtitle": "Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.",
+                "hero.projectsBtn": "View My Work",
+                "hero.contactBtn": "Contact Me",
+                "about.title": "About Me",
+                "about.subtitle": "Creating digital experiences that matter",
+                "about.p1": "Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.",
+                "about.p2": "My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.",
+                "about.p3": "I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.",
+                "about.skill1": "Responsive Design",
+                "projects.title": "My Projects",
+                "projects.project1.title": "E-Commerce Store",
+                "projects.project1.desc": "A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.",
+                "projects.project2.title": "Task Management App",
+                "projects.project2.desc": "A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.",
+                "projects.project3.title": "Movie Discovery App",
+                "projects.project3.desc": "An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.",
+                "projects.viewBtn": "View Project",
+                "contact.title": "Get In Touch",
+                "contact.email": "Email",
+                "contact.phone": "Phone",
+                "contact.location": "Location",
+                "contact.form.name": "Name",
+                "contact.form.email": "Email",
+                "contact.form.message": "Message",
+                "contact.form.send": "Send Message",
+                "footer.rights": "All rights reserved."
+            },
+            ru: {
+                "nav.about": "Обо мне",
+                "nav.skills": "Навыки",
+                "nav.projects": "Проекты",
+                "nav.contact": "Контакты",
+                "hero.title": "Эзра Патакуддапа",
+                "hero.subtitle": "Front-End разработчик, специализирующийся на создании адаптивных и интерактивных веб-приложений с использованием React, TypeScript и современных фреймворков.",
+                "hero.projectsBtn": "Мои работы",
+                "hero.contactBtn": "Связаться",
+                "about.title": "Обо мне",
+                "about.subtitle": "Создаю цифровой опыт, который имеет значение",
+                "about.p1": "Привет! Я Эзра, фронтенд-разработчик из Москвы, Россия. Я увлечен созданием адаптивных, доступных и производительных веб-приложений, которые обеспечивают отличный пользовательский опыт.",
+                "about.p2": "Мой путь в веб-разработке начался с HTML, CSS и JavaScript, и с тех пор я расширил свои навыки, включив в них современные фреймворки и библиотеки, такие как React, Next.js и TypeScript.",
+                "about.p3": "В настоящее время я ищу новые возможности в качестве фронтенд-разработчика, где могу внести вклад в значимые проекты и продолжать расти как разработчик.",
+                "about.skill1": "Адаптивный дизайн",
+                "projects.title": "Мои проекты",
+                "projects.project1.title": "Интернет-магазин",
+                "projects.project1.desc": "Полностью адаптивная платформа электронной коммерции, построенная на React и TypeScript, с фильтрацией товаров, функциональностью корзины и безопасным оформлением заказа.",
+                "projects.project2.title": "Приложение для управления задачами",
+                "projects.project2.desc": "Приложение для управления задачами с drag-and-drop интерфейсом, обновлениями в реальном времени, аутентификацией пользователей и облачной синхронизацией.",
+                "projects.project3.title": "Приложение для поиска фильмов",
+                "projects.project3.desc": "Приложение для просмотра и поиска фильмов с функцией поиска, пользовательскими рейтингами и персонализированными рекомендациями.",
+                "projects.viewBtn": "Посмотреть проект",
+                "contact.title": "Свяжитесь со мной",
+                "contact.email": "Email",
+                "contact.phone": "Телефон",
+                "contact.location": "Местоположение",
+                "contact.form.name": "Имя",
+                "contact.form.email": "Email",
+                "contact.form.message": "Сообщение",
+                "contact.form.send": "Отправить сообщение",
+                "footer.rights": "Все права защищены."
+            }
+        };
+
+        // Set initial language
+        let currentLang = 'en';
+
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update language switcher text
+            document.querySelector('.language-switcher span').textContent = lang === 'en' ? 'RU' : 'EN';
+        }
+
         // Mobile Navigation
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -691,19 +778,12 @@
             }
         });
         
-        // Language Switcher (placeholder functionality)
+        // Language Switcher
         const languageSwitcher = document.getElementById('languageSwitcher');
-        const languageText = languageSwitcher.querySelector('span');
         
         languageSwitcher.addEventListener('click', () => {
-            if (languageText.textContent === 'EN') {
-                languageText.textContent = 'RU';
-                // Here you would typically implement actual language switching
-                alert('Russian version coming soon! This would toggle the site content between English and Russian.');
-            } else {
-                languageText.textContent = 'EN';
-                alert('Switching back to English!');
-            }
+            const newLang = currentLang === 'en' ? 'ru' : 'en';
+            changeLanguage(newLang);
         });
         
         // Form Submission
@@ -711,7 +791,7 @@
         
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thanks for your message! This form is a demo and doesn\'t actually send emails.');
+            alert(currentLang === 'en' ? 'Thanks for your message! This form is a demo and doesn\'t actually send emails.' : 'Спасибо за ваше сообщение! Эта форма является демонстрационной и не отправляет электронные письма.');
             contactForm.reset();
         });
         
