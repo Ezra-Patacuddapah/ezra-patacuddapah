@@ -1,64 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezra Patacuddapah - Front-End Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Эзра Патакуддапа - Front-end разработчик</title>
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7e22ce;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-            --transition: all 0.3s ease;
-        }
-
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #f59e0b;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
-            transition: var(--transition);
-        }
-
-        body.dark-mode {
-            --dark: #f8fafc;
-            --light: #0f172a;
-            --gray: #cbd5e1;
-            --gray-light: #1e293b;
+            transition: all 0.3s ease;
         }
 
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--light);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        /* Language Switcher */
+        .language-switcher {
             position: fixed;
-            width: 100%;
-            top: 0;
+            top: 20px;
+            right: 20px;
             z-index: 1000;
-            transition: var(--transition);
+            background: white;
+            border-radius: 20px;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
         }
 
-        body.dark-mode header {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        .lang-btn {
+            padding: 8px 15px;
+            border: none;
+            background: transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav {
@@ -69,171 +80,249 @@
         }
 
         .logo {
-            font-weight: 700;
             font-size: 1.5rem;
+            font-weight: 700;
             color: var(--primary);
-            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 30px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: var(--transition);
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        .language-switcher {
-            display: flex;
-            align-items: center;
-            margin-left: 30px;
-            cursor: pointer;
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .language-switcher:hover {
-            color: var(--primary);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--dark);
-            margin-left: 20px;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            color: var(--primary);
-        }
-
-        .hamburger {
+        .mobile-menu-btn {
             display: none;
-            cursor: pointer;
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--dark);
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 30px;
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary);
+            background-color: var(--primary);
             color: white;
-            text-decoration: none;
+            padding: 12px 30px;
             border-radius: 5px;
+            text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+            background-color: var(--primary-dark);
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            margin-left: 15px;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* About Section */
-        .section {
+        /* Section Styles */
+        section {
             padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 30px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
             color: var(--dark);
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
+        .timeline-content .company {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 5px;
         }
 
-        .about-text {
-            flex: 1;
+        .timeline-content .duration {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: auto;
+            left: -10px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
             margin-bottom: 20px;
             color: var(--primary);
+            font-size: 1.2rem;
         }
 
-        .about-text p {
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-
-        .skills {
-            flex: 1;
+        .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .skill {
-            background: var(--gray-light);
-            padding: 10px 20px;
-            border-radius: 5px;
+        .skill-tag {
+            background-color: #e0f2fe;
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .education-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .education-item .institution {
+            color: var(--primary);
             font-weight: 500;
-            transition: var(--transition);
+            margin-bottom: 5px;
         }
 
-        .skill:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
+        .education-item .duration {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         /* Projects Section */
@@ -244,262 +333,221 @@
         }
 
         .project-card {
-            background: white;
-            border-radius: 10px;
+            background-color: white;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        body.dark-mode .project-card {
-            background: var(--gray-light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-img {
-            height: 200px;
-            background: linear-gradient(120deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            transform: translateY(-5px);
         }
 
         .project-content {
             padding: 20px;
         }
 
-        .project-content h3 {
+        .project-card h3 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--dark);
         }
 
-        .project-content p {
-            color: var(--gray);
-            margin-bottom: 15px;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .project-tech span {
-            background: var(--gray-light);
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .contact-text h4 {
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .contact-text p, .contact-text a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-text a:hover {
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
             color: var(--primary);
-        }
-
-        .contact-form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-mode .contact-form {
-            background: var(--gray-light);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--dark);
+            text-decoration: none;
             font-weight: 500;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--gray-light);
-            border-radius: 5px;
-            background: var(--light);
-            color: var(--dark);
-            transition: var(--transition);
+        /* Certificates Section */
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
+        .certificate-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Languages Section */
+        .languages-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .language-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background-color: var(--dark);
             color: white;
             padding: 50px 0 20px;
-            text-align: center;
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
         }
 
-        .social-links a {
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
             color: white;
-            font-size: 1.5rem;
-            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            color: var(--primary);
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
         }
 
         .copyright {
-            margin-top: 30px;
-            color: var(--gray);
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
+        /* Language-specific styles */
+        .lang-ru {
+            display: block;
         }
 
+        .lang-en {
+            display: none;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                flex-direction: column;
                 position: absolute;
-                top: 100%;
+                top: 70px;
                 left: 0;
-                width: 100%;
-                background: var(--light);
+                right: 0;
+                background: white;
+                flex-direction: column;
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             }
-            
+
             .nav-links.active {
                 display: flex;
             }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .hamburger {
+
+            .mobile-menu-btn {
                 display: block;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
-            .hero p {
-                font-size: 1rem;
+
+            .timeline::before {
+                left: 20px;
             }
-            
-            .btn-container {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
+
+            .timeline-item {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 50px;
             }
-            
-            .btn-outline {
+
+            .timeline-item:nth-child(even) {
                 margin-left: 0;
+                padding-left: 50px;
+            }
+
+            .timeline-item::before {
+                right: auto;
+                left: 10px;
+            }
+
+            .timeline-item:nth-child(even)::before {
+                left: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Ezra.dev</a>
-                <ul class="nav-links">
-                    <li><a href="#about" data-i18n="nav.about">About</a></li>
-                    <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-                    <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                    <li class="language-switcher" id="languageSwitcher">
-                        <i class="fas fa-globe"></i>
-                        <span>EN</span>
-                    </li>
-                    <li>
-                        <button class="theme-toggle" id="themeToggle">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </li>
-                </ul>
-                <button class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <div class="logo lang-ru">Эзра Патакуддапа</div>
+                <div class="logo lang-en">Ezra Patacuddapah</div>
+                <div class="nav-links">
+                    <a href="#experience" class="lang-ru">Опыт работы</a>
+                    <a href="#experience" class="lang-en">Experience</a>
+                    <a href="#skills" class="lang-ru">Навыки</a>
+                    <a href="#skills" class="lang-en">Skills</a>
+                    <a href="#education" class="lang-ru">Образование</a>
+                    <a href="#education" class="lang-en">Education</a>
+                    <a href="#projects" class="lang-ru">Проекты</a>
+                    <a href="#projects" class="lang-en">Projects</a>
+                    <a href="#certificates" class="lang-ru">Сертификаты</a>
+                    <a href="#certificates" class="lang-en">Certificates</a>
+                    <a href="#contact" class="lang-ru">Контакты</a>
+                    <a href="#contact" class="lang-en">Contact</a>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
             </nav>
         </div>
     </header>
@@ -507,310 +555,365 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 data-i18n="hero.title">Ezra Patacuddapah</h1>
-            <p data-i18n="hero.subtitle">Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.</p>
-            <div class="btn-container">
-                <a href="#projects" class="btn" data-i18n="hero.projectsBtn">View My Work</a>
-                <a href="#contact" class="btn btn-outline" data-i18n="hero.contactBtn">Contact Me</a>
+            <h1 class="lang-ru">Эзра Патакуддапа</h1>
+            <h1 class="lang-en">Ezra Patacuddapah</h1>
+            
+            <h2 class="lang-ru">Front-end разработчик и специалист по вводу данных</h2>
+            <h2 class="lang-en">Front-end Developer and Data Entry Executive</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍 Москва, Россия</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞 +7 977 866 74 19 (Whatsapp и Telegram)</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️ ezrapatacuddapah@gmail.com</span>
+                </div>
+            </div>
+            <a href="https://ezradev.vercel.app/" class="btn lang-ru" target="_blank">Посмотреть мое портфолио</a>
+            <a href="https://ezradev.vercel.app/" class="btn lang-en" target="_blank">View My Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-ru">Опыт работы</h2>
+                <h2 class="lang-en">Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">UI разработчик / Специалист по вводу данных</h3>
+                        <h3 class="lang-en">UI Developer / Data Entry Executive</h3>
+                        <div class="company">EnterPi Software Solutions, Хайдарабад</div>
+                        <div class="duration">Декабрь 2015 - Август 2021</div>
+                        <p class="lang-ru">Работал над различными проектами, включая управление сайтами на Wordpress, затем работал над веб-приложениями для клиентов из США и руководил командой из четырех человек.</p>
+                        <p class="lang-en">Worked on various Projects including managing Wordpress sites and then worked on various web apps for USA clients, and led a team of four.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Исполнительный директор по обработке данных (закупки)</h3>
+                        <h3 class="lang-en">Data Processing Executive Procurement</h3>
+                        <div class="company">ProKarma Softech, Хайдарабад</div>
+                        <div class="duration">Апрель 2014 - Июнь 2015</div>
+                        <p class="lang-ru">Работал в сфере закупок для американской железнодорожной компании, отвечал за производительность команды, отчитываясь перед менеджером.</p>
+                        <p class="lang-en">Worked in procurement for an American railways company, used to take care of the performance of the team reporting to the manager.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="lang-ru">Телеоператор, Оператор ввода данных</h3>
+                        <h3 class="lang-en">Telecaller, Data Entry Operator</h3>
+                        <div class="company">Небольшие компании, Хайдарабад</div>
+                        <div class="duration">2010 - 2014</div>
+                        <p class="lang-ru">В начале карьеры работал в небольших и нескольких компаниях.</p>
+                        <p class="lang-en">In the beginning of my career, I worked in small and multiple companies.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
+    <!-- Skills Section -->
+    <section id="skills">
         <div class="container">
-            <h2 class="section-title" data-i18n="about.title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3 data-i18n="about.subtitle">Creating digital experiences that matter</h3>
-                    <p data-i18n="about.p1">Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.</p>
-                    <p data-i18n="about.p2">My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.</p>
-                    <p data-i18n="about.p3">I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.</p>
+            <div class="section-title">
+                <h2 class="lang-ru">Навыки</h2>
+                <h2 class="lang-en">Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="lang-ru">Фронтенд технологии</h3>
+                    <h3 class="lang-en">Frontend Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Next.js</span>
+                    </div>
                 </div>
-                <div class="skills">
-                    <span class="skill">HTML</span>
-                    <span class="skill">CSS</span>
-                    <span class="skill">JavaScript</span>
-                    <span class="skill">React</span>
-                    <span class="skill">TypeScript</span>
-                    <span class="skill">Tailwind CSS</span>
-                    <span class="skill">Next.js</span>
-                    <span class="skill" data-i18n="about.skill1">Responsive Design</span>
+                <div class="skill-category">
+                    <h3 class="lang-ru">Бэкенд и инструменты</h3>
+                    <h3 class="lang-en">Backend & Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="lang-ru">Профессиональные навыки</h3>
+                    <h3 class="lang-en">Professional Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag lang-ru">Печать (английский и русский)</span>
+                        <span class="skill-tag lang-en">Typing (English and Russian)</span>
+                        <span class="skill-tag lang-ru">Решение проблем</span>
+                        <span class="skill-tag lang-en">Problem Solving</span>
+                        <span class="skill-tag lang-ru">Креативность</span>
+                        <span class="skill-tag lang-en">Creativity</span>
+                        <span class="skill-tag lang-ru">Лидерство команды</span>
+                        <span class="skill-tag lang-en">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-ru">Образование</h2>
+                <h2 class="lang-en">Education</h2>
+            </div>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3 class="lang-ru">Русский как иностранный язык</h3>
+                    <h3 class="lang-en">Russian as a foreign language</h3>
+                    <div class="institution">Московский государственный лингвистический университет, Москва</div>
+                    <div class="duration">Январь 2024 - Апрель 2025</div>
+                </div>
+                <div class="education-item">
+                    <h3 class="lang-ru">Специальный диплом по электронике</h3>
+                    <h3 class="lang-en">Special Diploma in Electronics</h3>
+                    <div class="institution">Государственный институт электроники, Секундерабад</div>
+                    <div class="duration">Июнь 2007 - Апрель 2011</div>
+                    <p class="lang-ru">Не смог завершить курс.</p>
+                    <p class="lang-en">I could not complete the course.</p>
+                </div>
+                <div class="education-item">
+                    <h3 class="lang-ru">Специалист по разработке приложений</h3>
+                    <h3 class="lang-en">Application Development Specialist</h3>
+                    <div class="institution">SSI Education, Андхра-Прадеш</div>
+                    <div class="duration">Июнь 2003 - Апрель 2007</div>
+                    <p class="lang-ru">Завершил курс по различным технологиям.</p>
+                    <p class="lang-en">I completed my course on various technologies.</p>
+                </div>
+                <div class="education-item">
+                    <h3 class="lang-ru">Колледж</h3>
+                    <h3 class="lang-en">College Education</h3>
+                    <div class="institution">S.V.B Junior College, Андхра-Прадеш</div>
+                    <div class="duration">Июнь 2003 - Март 2006</div>
+                    <p class="lang-ru">Завершил курс по биологии, физике и химии.</p>
+                    <p class="lang-en">I completed my course in Biology, Physics and Chemistry.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="section" id="projects">
+    <section id="projects">
         <div class="container">
-            <h2 class="section-title" data-i18n="projects.title">My Projects</h2>
+            <div class="section-title">
+                <h2 class="lang-ru">Проекты</h2>
+                <h2 class="lang-en">Projects</h2>
+            </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
                     <div class="project-content">
-                        <h3 data-i18n="projects.project1.title">E-Commerce Store</h3>
-                        <p data-i18n="projects.project1.desc">A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
+                        <h3 class="lang-ru">Система управления пользователями</h3>
+                        <h3 class="lang-en">User Management System</h3>
+                        <p class="lang-ru">Адаптивное приложение для управления пользователями с операциями CRUD.</p>
+                        <p class="lang-en">A responsive user management application with CRUD operations.</p>
+                        <a href="https://user-management-flame-sixvercel.app/" class="project-link lang-ru" target="_blank">Посмотреть проект →</a>
+                        <a href="https://user-management-flame-sixvercel.app/" class="project-link lang-en" target="_blank">View Project →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-tasks"></i>
-                    </div>
                     <div class="project-content">
-                        <h3 data-i18n="projects.project2.title">Task Management App</h3>
-                        <p data-i18n="projects.project2.desc">A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.</p>
-                        <div class="project-tech">
-                            <span>Next.js</span>
-                            <span>Firebase</span>
-                            <span>CSS Modules</span>
-                        </div>
-                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
+                        <h3 class="lang-ru">Адаптивный интерактивный веб-сайт</h3>
+                        <h3 class="lang-en">Responsive Interactive Website</h3>
+                        <p class="lang-ru">Современный интерактивный веб-сайт с адаптивным дизайном.</p>
+                        <p class="lang-en">A modern, interactive website with responsive design.</p>
+                        <a href="https://responsive-interactive-websitevercel.app/" class="project-link lang-ru" target="_blank">Посмотреть проект →</a>
+                        <a href="https://responsive-interactive-websitevercel.app/" class="project-link lang-en" target="_blank">View Project →</a>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-film"></i>
-                    </div>
                     <div class="project-content">
-                        <h3 data-i18n="projects.project3.title">Movie Discovery App</h3>
-                        <p data-i18n="projects.project3.desc">An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Redux</span>
-                            <span>TMDB API</span>
-                        </div>
-                        <a href="#" class="btn" data-i18n="projects.viewBtn">View Project</a>
+                        <h3 class="lang-ru">AMMA Россия</h3>
+                        <h3 class="lang-en">AMMA Russia</h3>
+                        <p class="lang-ru">Веб-сайт для организации AMMA Russia.</p>
+                        <p class="lang-en">A website project for AMMA Russia organization.</p>
+                        <a href="https://ammarussiavercel.app/" class="project-link lang-ru" target="_blank">Посмотреть проект →</a>
+                        <a href="https://ammarussiavercel.app/" class="project-link lang-en" target="_blank">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="lang-ru">Doina Dance</h3>
+                        <h3 class="lang-en">Doina Dance</h3>
+                        <p class="lang-ru">Веб-сайт для танцевальной организации или школы.</p>
+                        <p class="lang-en">A website for a dance organization or school.</p>
+                        <a href="https://doina-dancevercel.app/" class="project-link lang-ru" target="_blank">Посмотреть проект →</a>
+                        <a href="https://doina-dancevercel.app/" class="project-link lang-en" target="_blank">View Project →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="lang-ru">Адаптивное CRUD приложение</h3>
+                        <h3 class="lang-en">Responsive CRUD Application</h3>
+                        <p class="lang-ru">Полнофункциональное CRUD приложение с адаптивным дизайном.</p>
+                        <p class="lang-en">A full-featured CRUD application with responsive design.</p>
+                        <a href="https://responsive-crud-application.vercel.app/" class="project-link lang-ru" target="_blank">Посмотреть проект →</a>
+                        <a href="https://responsive-crud-application.vercel.app/" class="project-link lang-en" target="_blank">View Project →</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
+    <!-- Certificates Section -->
+    <section id="certificates">
         <div class="container">
-            <h2 class="section-title" data-i18n="contact.title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4 data-i18n="contact.email">Email</h4>
-                            <a href="mailto:ezrapatacuddapah@gmail.com">ezrapatacuddapah@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4 data-i18n="contact.phone">Phone</h4>
-                            <a href="tel:+79778667419">+7 977 866 74 19</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4 data-i18n="contact.location">Location</h4>
-                            <p>Moscow, Russia</p>
-                        </div>
-                    </div>
+            <div class="section-title">
+                <h2 class="lang-ru">Курсы и сертификаты</h2>
+                <h2 class="lang-en">Courses and Certificates</h2>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-item">
+                    <h3 class="lang-ru">Сертификаты Scrimba</h3>
+                    <h3 class="lang-en">Scrimba Certificates</h3>
+                    <p class="lang-ru">Коллекция сертификатов с онлайн-курсов Scrimba.</p>
+                    <p class="lang-en">Collection of certificates from Scrimba online courses.</p>
+                    <a href="https://scrimba.com/u414504a:certs" class="certificate-link lang-ru" target="_blank">Посмотреть сертификаты →</a>
+                    <a href="https://scrimba.com/u414504a:certs" class="certificate-link lang-en" target="_blank">View Certificates →</a>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" data-i18n="contact.form.name">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" data-i18n="contact.form.email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-i18n="contact.form.message">Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" data-i18n="contact.form.send">Send Message</button>
-                    </form>
+                <div class="certificate-item">
+                    <h3 class="lang-ru">Сертификаты Udemy</h3>
+                    <h3 class="lang-en">Udemy Certificates</h3>
+                    <p class="lang-ru">Различные сертификаты с онлайн-курсов Udemy.</p>
+                    <p class="lang-en">Various certificates from Udemy online courses.</p>
+                    <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-abec3849-10fb-4c68-86ba-8899a1d60289.jpg?v=1599818817000" class="certificate-link lang-ru" target="_blank">Посмотреть сертификаты →</a>
+                    <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-abec3849-10fb-4c68-86ba-8899a1d60289.jpg?v=1599818817000" class="certificate-link lang-en" target="_blank">View Certificates →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-ru">Языки</h2>
+                <h2 class="lang-en">Languages</h2>
+            </div>
+            <div class="languages-container">
+                <div class="language-item">
+                    <h3 class="lang-ru">Английский</h3>
+                    <h3 class="lang-en">English</h3>
+                    <p class="lang-ru">Профессиональное владение</p>
+                    <p class="lang-en">Professional Proficiency</p>
+                </div>
+                <div class="language-item">
+                    <h3 class="lang-ru">Русский</h3>
+                    <h3 class="lang-en">Russian</h3>
+                    <p class="lang-ru">В настоящее время изучаю</p>
+                    <p class="lang-en">Currently Studying</p>
+                </div>
+                <div class="language-item">
+                    <h3 class="lang-ru">Телугу</h3>
+                    <h3 class="lang-en">Telugu</h3>
+                    <p class="lang-ru">Родной язык</p>
+                    <p class="lang-en">Native Proficiency</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo">Ezra.dev</a>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-codepen"></i></a>
+                <div class="footer-section">
+                    <h3 class="lang-ru">Контактная информация</h3>
+                    <h3 class="lang-en">Contact Information</h3>
+                    <ul class="footer-links">
+                        <li>📍 Москва, Россия</li>
+                        <li>📞 +7 977 866 74 19</li>
+                        <li>✉️ ezrapatacuddapah@gmail.com</li>
+                    </ul>
                 </div>
-                <p class="copyright">© 2023 Ezra Patacuddapah. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <div class="footer-section">
+                    <h3 class="lang-ru">Быстрые ссылки</h3>
+                    <h3 class="lang-en">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#experience" class="lang-ru">Опыт работы</a><a href="#experience" class="lang-en">Experience</a></li>
+                        <li><a href="#skills" class="lang-ru">Навыки</a><a href="#skills" class="lang-en">Skills</a></li>
+                        <li><a href="#education" class="lang-ru">Образование</a><a href="#education" class="lang-en">Education</a></li>
+                        <li><a href="#projects" class="lang-ru">Проекты</a><a href="#projects" class="lang-en">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-ru">Онлайн профили</h3>
+                    <h3 class="lang-en">Online Profiles</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://ezradev.vercel.app/" target="_blank" class="lang-ru">Веб-сайт портфолио</a><a href="https://ezradev.vercel.app/" target="_blank" class="lang-en">Portfolio Website</a></li>
+                        <li><a href="https://scrimba.com/u414504a:certs" target="_blank" class="lang-ru">Сертификаты Scrimba</a><a href="https://scrimba.com/u414504a:certs" target="_blank" class="lang-en">Scrimba Certificates</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <span class="lang-ru">&copy; 2023 Эзра Патакуддапа. Все права защищены.</span>
+                <span class="lang-en">&copy; 2023 Ezra Patacuddapah. All rights reserved.</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // Language data
-        const translations = {
-            en: {
-                "nav.about": "About",
-                "nav.skills": "Skills",
-                "nav.projects": "Projects",
-                "nav.contact": "Contact",
-                "hero.title": "Ezra Patacuddapah",
-                "hero.subtitle": "Front-End Developer specializing in creating responsive and interactive web experiences with React, TypeScript, and modern frameworks.",
-                "hero.projectsBtn": "View My Work",
-                "hero.contactBtn": "Contact Me",
-                "about.title": "About Me",
-                "about.subtitle": "Creating digital experiences that matter",
-                "about.p1": "Hello! I'm Ezra, a front-end developer based in Moscow, Russia. I'm passionate about building responsive, accessible, and performant web applications that provide great user experiences.",
-                "about.p2": "My journey in web development started with HTML, CSS, and JavaScript, and I've since expanded my skills to include modern frameworks and libraries like React, Next.js, and TypeScript.",
-                "about.p3": "I'm currently looking for new opportunities as a front-end developer where I can contribute to meaningful projects and continue to grow as a developer.",
-                "about.skill1": "Responsive Design",
-                "projects.title": "My Projects",
-                "projects.project1.title": "E-Commerce Store",
-                "projects.project1.desc": "A fully responsive e-commerce platform built with React and TypeScript, featuring product filtering, cart functionality, and secure checkout.",
-                "projects.project2.title": "Task Management App",
-                "projects.project2.desc": "A drag-and-drop task management application with real-time updates, user authentication, and cloud synchronization.",
-                "projects.project3.title": "Movie Discovery App",
-                "projects.project3.desc": "An application for browsing and discovering movies, with search functionality, user ratings, and personalized recommendations.",
-                "projects.viewBtn": "View Project",
-                "contact.title": "Get In Touch",
-                "contact.email": "Email",
-                "contact.phone": "Phone",
-                "contact.location": "Location",
-                "contact.form.name": "Name",
-                "contact.form.email": "Email",
-                "contact.form.message": "Message",
-                "contact.form.send": "Send Message",
-                "footer.rights": "All rights reserved."
-            },
-            ru: {
-                "nav.about": "Обо мне",
-                "nav.skills": "Навыки",
-                "nav.projects": "Проекты",
-                "nav.contact": "Контакты",
-                "hero.title": "Эзра Патакуддапа",
-                "hero.subtitle": "Front-End разработчик, специализирующийся на создании адаптивных и интерактивных веб-приложений с использованием React, TypeScript и современных фреймворков.",
-                "hero.projectsBtn": "Мои работы",
-                "hero.contactBtn": "Связаться",
-                "about.title": "Обо мне",
-                "about.subtitle": "Создаю цифровой опыт, который имеет значение",
-                "about.p1": "Привет! Я Эзра, фронтенд-разработчик из Москвы, Россия. Я увлечен созданием адаптивных, доступных и производительных веб-приложений, которые обеспечивают отличный пользовательский опыт.",
-                "about.p2": "Мой путь в веб-разработке начался с HTML, CSS и JavaScript, и с тех пор я расширил свои навыки, включив в них современные фреймворки и библиотеки, такие как React, Next.js и TypeScript.",
-                "about.p3": "В настоящее время я ищу новые возможности в качестве фронтенд-разработчика, где могу внести вклад в значимые проекты и продолжать расти как разработчик.",
-                "about.skill1": "Адаптивный дизайн",
-                "projects.title": "Мои проекты",
-                "projects.project1.title": "Интернет-магазин",
-                "projects.project1.desc": "Полностью адаптивная платформа электронной коммерции, построенная на React и TypeScript, с фильтрацией товаров, функциональностью корзины и безопасным оформлением заказа.",
-                "projects.project2.title": "Приложение для управления задачами",
-                "projects.project2.desc": "Приложение для управления задачами с drag-and-drop интерфейсом, обновлениями в реальном времени, аутентификацией пользователей и облачной синхронизацией.",
-                "projects.project3.title": "Приложение для поиска фильмов",
-                "projects.project3.desc": "Приложение для просмотра и поиска фильмов с функцией поиска, пользовательскими рейтингами и персонализированными рекомендациями.",
-                "projects.viewBtn": "Посмотреть проект",
-                "contact.title": "Свяжитесь со мной",
-                "contact.email": "Email",
-                "contact.phone": "Телефон",
-                "contact.location": "Местоположение",
-                "contact.form.name": "Имя",
-                "contact.form.email": "Email",
-                "contact.form.message": "Сообщение",
-                "contact.form.send": "Отправить сообщение",
-                "footer.rights": "Все права защищены."
-            }
-        };
-
-        // Set initial language
-        let currentLang = 'en';
-
-        // Function to change language
-        function changeLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
+        // Language switching functionality
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show/hide content based on selected language
+                const lang = this.getAttribute('data-lang');
+                document.querySelectorAll('.lang-ru').forEach(el => {
+                    el.style.display = lang === 'ru' ? 'block' : 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = lang === 'en' ? 'block' : 'none';
+                });
             });
-            
-            // Update language switcher text
-            document.querySelector('.language-switcher span').textContent = lang === 'en' ? 'RU' : 'EN';
-        }
+        });
 
-        // Mobile Navigation
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        hamburger.addEventListener('click', () => {
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         });
-        
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        });
-        
-        // Language Switcher
-        const languageSwitcher = document.getElementById('languageSwitcher');
-        
-        languageSwitcher.addEventListener('click', () => {
-            const newLang = currentLang === 'en' ? 'ru' : 'en';
-            changeLanguage(newLang);
-        });
-        
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert(currentLang === 'en' ? 'Thanks for your message! This form is a demo and doesn\'t actually send emails.' : 'Спасибо за ваше сообщение! Эта форма является демонстрационной и не отправляет электронные письма.');
-            contactForm.reset();
-        });
-        
-        // Smooth Scrolling
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                if(targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    navLinks.classList.remove('active');
-                    
+                if(targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 768) {
+                        document.querySelector('.nav-links').classList.remove('active');
+                    }
                 }
             });
         });
