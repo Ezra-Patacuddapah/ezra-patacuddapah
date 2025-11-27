@@ -1,5 +1,96 @@
 ## Hi there 👋
 
+# Ezra Patacuddapah
+### Full-Stack Developer 
+#### Design•Develop•Deploy|Review•Refactor
+- 📱+7 (977) 866-74-19
+- ✉️[ezrapatacuddapah@gmail.com](ezrapatacuddapah@gmail.com)
+- 🌐[Website](https://ezradev.vercel.app) | [Linkedin](https://www.linkedin.com/in/ezra-patacuddapah-11b194363/)
+- 📍Moscow, Russia.
+
+
+## Skills: 
+  - ### Core: 
+      - HTML5 
+      - CSS3
+      - JS
+      - Node.js
+      - PostgreSQL
+  - ### Library: 
+      - React
+  - ### Tools: 
+      - Typescript
+      - Git
+      - GitHub
+      - Vercel
+  - ### Frameworks: 
+      - Tailwind CSS
+      - Next.js
+  - ### BaaS: 
+      - Supabase
+  - ### IDE: 
+      - Visual Studio Code
+  - ### Typing: 
+      - Touch Typing
+  - ### Teaching: 
+      - Web development
+      - Spoken English
+- ## Languages:
+    - Telugu
+    - English
+    - Russian
+
+## Projects
+- [Text-based Full-Stack App]()
+- [Dashboard App]()
+- [Front-End based CRUD App]()
+- [Front-End Product Manager]()
+
+## Certificates:
+- [Next.js App Router]()
+- [React for Next.js]()
+- [Learn Next.js]()
+- [Advanced React]()
+- [Learn TypeScript]()
+- [Learn Tailwind CSS]()
+- [HTML & CSS]()
+- [Frontend Career Path]()
+- [Learn JavaScript]()
+
+## About me: 
+- I am a self taught and a trained up developer, passionate about coding who loves computers and technologies especially web. 
+- I am trained up and have experience as a solo developer and then as a developer in a team. 
+- In coding, make it work first and then make it better, this is my philosophy. I have a creative and problem solving mind and make things as simple as possible. 
+- I prompt the internet very well while coding. 
+- I made a full-stack application using PHP at the beginning of my web development journey and successfully launched a small social media app and ran it for three years solely.
+- I believe in Design, Develop, Deploy and Review, Refactor of our ideas into coding.
+
+## Experience:
+- UI/UX Developer, EnterPi Software Solutions, Hyderabad, India.
+- December 2015 - August 2021
+- Developed User Interfaces and managed Wordpress sites and managed the team of four for creating the hotspots on the weekly flyers.
+- Created UI’s sometimes only with the core HTML, CSS and JS based on the clients’ requests.
+- Developed a small side project a social media app solely using PHP majorly with icons mostly and maintained it for a couple of years.
+- Data Processing Executive Procurement, ProKarma Softech, Hyderabad. India. April 2014 - June 2015
+- Created the reports using excel sheets of the performance or the quality of the team and informed each of the members in the team.
+- Maintained a dashboard on a whiteboard to showcase the team’s achievements and performance.
+- Made the weekly reports and reported to the manager.
+
+## Education:
+- Russian as a Foreign Language, Moscow State Linguistic University, Moscow, Russia.
+January 2024 - January 2025                   
+- Special Diploma in Electronics, G.I.O.E, Secunderabad, India.
+	June 2007 - April 2011
+- Application Development Specialist, SSI Education, Proddatur, India.
+	June 2006 - April 2007
+- Biology, Physics and Chemistry, S.V.B. Junior College, Proddatur, India.
+	June 2003 - March 2006
+- Schooling, Siddartha High School, Proddatur, India.
+	June 2002 - March 2003
+
+
+
+
 <!--
 **Ezra-Patacuddapah/ezra-patacuddapah** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
