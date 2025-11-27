@@ -60,10 +60,10 @@
 ## About me: 
 - I am a self taught and a trained up developer, passionate about coding who loves computers and technologies especially web. 
 - I am trained up and have experience as a solo developer and then as a developer in a team. 
-- In coding, make it work first and then make it better, this is my philosophy. I have a creative and problem solving mind and make things as simple as possible. 
+- In coding, *make it work first and then make it better*, this is my philosophy. I have a creative and problem solving mind and make things as simple as possible. 
 - I prompt the internet very well while coding. 
 - I made a full-stack application using PHP at the beginning of my web development journey and successfully launched a small social media app and ran it for three years solely.
-- I believe in Design, Develop, Deploy and Review, Refactor of our ideas into coding.
+- I believe in **Design, Develop, Deploy and Review, Refactor** of our ideas into coding.
 
 ## Experience:
 - UI/UX Developer, EnterPi Software Solutions, Hyderabad, India.
