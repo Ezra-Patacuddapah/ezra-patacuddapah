@@ -66,27 +66,27 @@
 - I believe in **Design, Develop, Deploy and Review, Refactor** of our ideas into coding.
 
 ## Experience:
-- UI/UX Developer, EnterPi Software Solutions, Hyderabad, India.
+- **UI/UX Developer**, EnterPi Software Solutions, *Hyderabad, India*.
 	December 2015 - August 2021
 - Developed User Interfaces and managed Wordpress sites and managed the team of four for creating the hotspots on the weekly flyers.
 - Created UI’s sometimes only with the core HTML, CSS and JS based on the clients’ requests.
 - Developed a small side project a social media app solely using PHP majorly with icons mostly and maintained it for a couple of years.
-- Data Processing Executive Procurement, ProKarma Softech, Hyderabad. India.
+- **Data Processing Executive Procurement**, ProKarma Softech, *Hyderabad. India*.
 	April 2014 - June 2015
 - Created the reports using excel sheets of the performance or the quality of the team and informed each of the members in the team.
 - Maintained a dashboard on a whiteboard to showcase the team’s achievements and performance.
 - Made the weekly reports and reported to the manager.
 
 ## Education:
-- Russian as a Foreign Language, Moscow State Linguistic University, Moscow, Russia.
+- **Russian as a Foreign Language**, Moscow State Linguistic University, *Moscow, Russia*.
 	January 2024 - January 2025                   
-- Special Diploma in Electronics, G.I.O.E, Secunderabad, India.
+- **Special Diploma in Electronics**, G.I.O.E, *Secunderabad, India*.
 	June 2007 - April 2011
-- Application Development Specialist, SSI Education, Proddatur, India.
+- **Application Development Specialist**, SSI Education, *Proddatur, India*.
 	June 2006 - April 2007
-- Biology, Physics and Chemistry, S.V.B. Junior College, Proddatur, India.
+- **Biology, Physics and Chemistry**, S.V.B. Junior College, *Proddatur, India*.
 	June 2003 - March 2006
-- Schooling, Siddartha High School, Proddatur, India.
+- **Schooling**, Siddartha High School, *Proddatur, India*.
 	June 2002 - March 2003
 
 
