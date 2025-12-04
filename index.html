@@ -3,47 +3,736 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezra Full-Stack Developer</title>
+    <title>Ezra Patacuddapah - Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .language-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: #e0f2fe;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            color: var(--gray-color);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Certificates */
+        .certificates-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .certificate {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button id="en-btn" class="language-btn active">EN</button>
+        <button id="ru-btn" class="language-btn">RU</button>
+    </div>
+
+    <!-- Header Section -->
     <header>
-        <h1>Ezra Patacuddapah</h1>
-        <p>Full-Stack Developer</p>
+        <div class="container">
+            <img src="https://ui-avatars.com/api/?name=Ezra+Patacuddapah&background=2563eb&color=fff&size=150&font-size=0.4" alt="Ezra Patacuddapah" class="profile-img">
+            <h1 id="name">Ezra Patacuddapah</h1>
+            <p class="tagline" id="tagline">Full-Stack Developer</p>
+            <p id="location">Moscow, Russia</p>
+            
+            <div class="contact-info">
+                <a href="tel:+79778667419" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span id="phone">+7 (977) 866-74-19</span>
+                </a>
+                <a href="mailto:ezrapatacuddapah@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span id="email">ezrapatacuddapah@gmail.com</span>
+                </a>
+                <a href="#" class="contact-item" id="website-link">
+                    <i class="fas fa-globe"></i>
+                    <span id="website">Website</span>
+                </a>
+                <a href="#" class="contact-item" id="linkedin-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="contact-item" id="github-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
     </header>
-    
-    <main></main>
-    <footer></footer>
-    
 
-+7 (977) 866-74-19 | ezrapatacuddapah@gmail.com | Website | Linkedin | GitHub
-Moscow, Russia.
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 id="about-title">About me</h2>
+            <div class="section-content">
+                <p class="about-text" id="about-text">
+                    Passionate Full-Stack Developer with expertise in the React/Next.js ecosystem and a proven track record of building and deploying full-stack applications. A strong problem-solver who believes in iterative development: from initial design and functional development to deployment, followed by review and refactoring for optimal performance. Experienced in both solo projects and collaborative team environments.
+                </p>
+                
+                <div class="languages" style="margin-top: 20px;">
+                    <h3 id="languages-title">Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Telugu</span>
+                        <span class="skill-item">English</span>
+                        <span class="skill-item">Russian</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-About me: Passionate Full-Stack Developer with expertise in the React/Next.js ecosystem and a proven track record of building and deploying full-stack applications. A strong problem-solver who believes in iterative development: from initial design and functional development to deployment, followed by review and refactoring for optimal performance. Experienced in both solo projects and collaborative team environments.
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 id="skills-title">Skills</h2>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3 id="languages-tech-title">Languages & Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">HTML5</span>
+                        <span class="skill-item">CSS3</span>
+                        <span class="skill-item">SQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 id="frameworks-title">Frameworks & Libraries</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">Tailwind CSS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 id="tools-title">Tools & Platforms</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Vercel</span>
+                        <span class="skill-item">Supabase</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">VSCode</span>
+                        <span class="skill-item">Vite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-Languages: Telugu | English | Russian
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 id="projects-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Text-based Full-Stack App</h3>
+                        <p id="project1-desc">A full-stack application with text-based functionality built with React, Next.js and backend integration.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard App</h3>
+                        <p id="project2-desc">Interactive dashboard application with data visualization and real-time updates.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Front-End CRUD App</h3>
+                        <p id="project3-desc">Frontend application with Create, Read, Update, Delete operations and responsive UI.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Front-End Product Manager</h3>
+                        <p id="project4-desc">Product management interface with filtering, sorting and search capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-Skills: 
-Languages & Technologies: JavaScript | TypeScript | HTML5 | CSS3 | SQL
-Frameworks & Libraries: React | Next.js | Tailwind CSS
-Tools & Platforms: Git | GitHub | Node.js | Vercel | Supabase | PostgreSQL | VS Code | Vite
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 id="experience-title">Experience</h2>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="timeline-title" id="job1-title">UI/UX Developer</h3>
+                        <p class="timeline-subtitle" id="job1-company">EnterPi Software Solutions, Hyderabad, India</p>
+                        <p class="timeline-subtitle" id="job1-period">December 2015 - August 2021</p>
+                        <ul>
+                            <li id="job1-desc1">Engineered responsive and accessible user interfaces for client websites using WordPress, HTML5, CSS3, and JavaScript, resulting in a 30% improvement in user engagement.</li>
+                            <li id="job1-desc2">Led and mentored a team of 4 developers in creating interactive hotspots for digital flyers, streamlining the client's promotional process and achieving near-perfect content accuracy.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="timeline-title" id="job2-title">Data Processing Executive- Procurement</h3>
+                        <p class="timeline-subtitle" id="job2-company">ProKarma Softech, Hyderabad, India</p>
+                        <p class="timeline-subtitle" id="job2-period">April 2014 - June 2015</p>
+                        <ul>
+                            <li id="job2-desc">Implemented a real-time quality monitoring and feedback system for the procurement team, enhancing overall team performance and data accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 id="education-title">Education</h2>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="timeline-title" id="edu1-title">Russian as a Foreign Language</h3>
+                        <p class="timeline-subtitle" id="edu1-school">Moscow State Linguistic University, Moscow, Russia</p>
+                        <p class="timeline-subtitle" id="edu1-period">January 2024 - January 2025</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="timeline-title" id="edu2-title">Special Diploma in Electronics</h3>
+                        <p class="timeline-subtitle" id="edu2-school">G.I.O.E, Secunderabad, India</p>
+                        <p class="timeline-subtitle" id="edu2-period">June 2007 - April 2011</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="timeline-title" id="edu3-title">Application Development Specialist</h3>
+                        <p class="timeline-subtitle" id="edu3-school">SSI Education, Proddatur, India</p>
+                        <p class="timeline-subtitle" id="edu3-period">June 2006 - April 2007</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-Projects: Text-based Full-Stack App | Dashboard App | Front-End CRUD App | Front-End Product Manager
-Certificates: Next.js App Router | React for Next.js | Learn Next.js | Advanced React | Learn TypeScript | Learn Tailwind CSS | HTML & CSS | Frontend Career Path | Learn JavaScript 
-Experience:
-UI/UX Developer, EnterPi Software Solutions, Hyderabad, India. December 2015 - August 2021
-Engineered responsive and accessible user interfaces for client websites using WordPress, HTML5, CSS3, and JavaScript, resulting in a 30% improvement in user engagement.
-Led and mentored a team of 4 developers in creating interactive hotspots for digital flyers, streamlining the client's promotional process and achieving near-perfect content accuracy.
-Data Processing Executive- Procurement, ProKarma Softech, Hyderabad. India. April 2014 - June 2015
-Implemented a real-time quality monitoring and feedback system for the procurement team, enhancing overall team performance and data accuracy.
+    <!-- Certificates Section -->
+    <section id="certificates" style="background-color: #f8fafc;">
+        <div class="container">
+            <h2 id="certificates-title">Certificates</h2>
+            <div class="certificates-list">
+                <div class="certificate">Next.js App Router</div>
+                <div class="certificate">React for Next.js</div>
+                <div class="certificate">Learn Next.js</div>
+                <div class="certificate">Advanced React</div>
+                <div class="certificate">Learn TypeScript</div>
+                <div class="certificate">Learn Tailwind CSS</div>
+                <div class="certificate">HTML & CSS</div>
+                <div class="certificate">Frontend Career Path</div>
+                <div class="certificate">Learn JavaScript</div>
+            </div>
+        </div>
+    </section>
 
-Education:
-Russian as a Foreign Language, Moscow State Linguistic University, Moscow, Russia. January 2024 - January 2025                   
-Special Diploma in Electronics, G.I.O.E, Secunderabad, India. June 2007 - April 2011
-Application Development Specialist, SSI Education, Proddatur, India. June 2006 - April 2007
-Biology, Physics and Chemistry, S.V.B. Junior College, Proddatur, India. June 2003 - March 2006
-Schooling, Siddartha High School, Proddatur, India. June 2002 - March 2003
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p id="footer-text">&copy; 2023 Ezra Patacuddapah. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" id="footer-website">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="#" class="social-link" id="footer-linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" id="footer-github">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:ezrapatacuddapah@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p id="footer-location">Based in Moscow, Russia</p>
+        </div>
+    </footer>
 
+    <script>
+        // Language Data
+        const translations = {
+            en: {
+                // Header
+                name: "Ezra Patacuddapah",
+                tagline: "Full-Stack Developer",
+                location: "Moscow, Russia",
+                phone: "+7 (977) 866-74-19",
+                email: "ezrapatacuddapah@gmail.com",
+                website: "Website",
+                
+                // Sections
+                "about-title": "About me",
+                "about-text": "Passionate Full-Stack Developer with expertise in the React/Next.js ecosystem and a proven track record of building and deploying full-stack applications. A strong problem-solver who believes in iterative development: from initial design and functional development to deployment, followed by review and refactoring for optimal performance. Experienced in both solo projects and collaborative team environments.",
+                "languages-title": "Languages",
+                
+                "skills-title": "Skills",
+                "languages-tech-title": "Languages & Technologies",
+                "frameworks-title": "Frameworks & Libraries",
+                "tools-title": "Tools & Platforms",
+                
+                "projects-title": "Projects",
+                "project1-desc": "A full-stack application with text-based functionality built with React, Next.js and backend integration.",
+                "project2-desc": "Interactive dashboard application with data visualization and real-time updates.",
+                "project3-desc": "Frontend application with Create, Read, Update, Delete operations and responsive UI.",
+                "project4-desc": "Product management interface with filtering, sorting and search capabilities.",
+                
+                "experience-title": "Experience",
+                "job1-title": "UI/UX Developer",
+                "job1-company": "EnterPi Software Solutions, Hyderabad, India",
+                "job1-period": "December 2015 - August 2021",
+                "job1-desc1": "Engineered responsive and accessible user interfaces for client websites using WordPress, HTML5, CSS3, and JavaScript, resulting in a 30% improvement in user engagement.",
+                "job1-desc2": "Led and mentored a team of 4 developers in creating interactive hotspots for digital flyers, streamlining the client's promotional process and achieving near-perfect content accuracy.",
+                "job2-title": "Data Processing Executive- Procurement",
+                "job2-company": "ProKarma Softech, Hyderabad, India",
+                "job2-period": "April 2014 - June 2015",
+                "job2-desc": "Implemented a real-time quality monitoring and feedback system for the procurement team, enhancing overall team performance and data accuracy.",
+                
+                "education-title": "Education",
+                "edu1-title": "Russian as a Foreign Language",
+                "edu1-school": "Moscow State Linguistic University, Moscow, Russia",
+                "edu1-period": "January 2024 - January 2025",
+                "edu2-title": "Special Diploma in Electronics",
+                "edu2-school": "G.I.O.E, Secunderabad, India",
+                "edu2-period": "June 2007 - April 2011",
+                "edu3-title": "Application Development Specialist",
+                "edu3-school": "SSI Education, Proddatur, India",
+                "edu3-period": "June 2006 - April 2007",
+                
+                "certificates-title": "Certificates",
+                
+                "footer-text": "© 2023 Ezra Patacuddapah. All rights reserved.",
+                "footer-location": "Based in Moscow, Russia"
+            },
+            ru: {
+                // Header
+                name: "Эзра Патакуддапа",
+                tagline: "Фулл-стек разработчик",
+                location: "Москва, Россия",
+                phone: "+7 (977) 866-74-19",
+                email: "ezrapatacuddapah@gmail.com",
+                website: "Веб-сайт",
+                
+                // Sections
+                "about-title": "Обо мне",
+                "about-text": "Увлеченный фулл-стек разработчик с экспертизой в экосистеме React/Next.js и подтвержденным опытом создания и развертывания полнофункциональных приложений. Сильный решатель проблем, верящий в итеративную разработку: от первоначального дизайна и функциональной разработки до развертывания, с последующим обзором и рефакторингом для оптимальной производительности. Опытен как в сольных проектах, так и в командной работе.",
+                "languages-title": "Языки",
+                
+                "skills-title": "Навыки",
+                "languages-tech-title": "Языки и технологии",
+                "frameworks-title": "Фреймворки и библиотеки",
+                "tools-title": "Инструменты и платформы",
+                
+                "projects-title": "Проекты",
+                "project1-desc": "Полнофункциональное приложение с текстовой функциональностью, построенное на React, Next.js и бэкенд-интеграции.",
+                "project2-desc": "Интерактивное дашборд-приложение с визуализацией данных и обновлениями в реальном времени.",
+                "project3-desc": "Фронтенд-приложение с операциями создания, чтения, обновления и удаления данных, с адаптивным интерфейсом.",
+                "project4-desc": "Интерфейс управления продуктами с фильтрацией, сортировкой и поиском.",
+                
+                "experience-title": "Опыт работы",
+                "job1-title": "UI/UX разработчик",
+                "job1-company": "EnterPi Software Solutions, Хайдарабад, Индия",
+                "job1-period": "Декабрь 2015 - Август 2021",
+                "job1-desc1": "Разрабатывал адаптивные и доступные пользовательские интерфейсы для клиентских веб-сайтов с использованием WordPress, HTML5, CSS3 и JavaScript, что привело к улучшению вовлеченности пользователей на 30%.",
+                "job1-desc2": "Руководил и наставлял команду из 4 разработчиков в создании интерактивных горячих точек для цифровых флаеров, оптимизируя процесс продвижения клиента и достигая почти идеальной точности контента.",
+                "job2-title": "Исполнительный директор по обработке данных - Закупки",
+                "job2-company": "ProKarma Softech, Хайдарабад, Индия",
+                "job2-period": "Апрель 2014 - Июнь 2015",
+                "job2-desc": "Внедрил систему мониторинга качества и обратной связи в реальном времени для команды закупок, повысив общую производительность команды и точность данных.",
+                
+                "education-title": "Образование",
+                "edu1-title": "Русский как иностранный язык",
+                "edu1-school": "Московский государственный лингвистический университет, Москва, Россия",
+                "edu1-period": "Январь 2024 - Январь 2025",
+                "edu2-title": "Специальный диплом по электронике",
+                "edu2-school": "G.I.O.E, Секундерабад, Индия",
+                "edu2-period": "Июнь 2007 - Апрель 2011",
+                "edu3-title": "Специалист по разработке приложений",
+                "edu3-school": "SSI Education, Проддатур, Индия",
+                "edu3-period": "Июнь 2006 - Апрель 2007",
+                
+                "certificates-title": "Сертификаты",
+                
+                "footer-text": "© 2023 Эзра Патакуддапа. Все права защищены.",
+                "footer-location": "Находится в Москве, Россия"
+            }
+        };
 
+        // Language switching functionality
+        let currentLang = 'en';
+        
+        const enBtn = document.getElementById('en-btn');
+        const ruBtn = document.getElementById('ru-btn');
+        
+        enBtn.addEventListener('click', () => switchLanguage('en'));
+        ruBtn.addEventListener('click', () => switchLanguage('ru'));
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            enBtn.classList.toggle('active', lang === 'en');
+            ruBtn.classList.toggle('active', lang === 'ru');
+            
+            // Update all translatable elements
+            const langData = translations[lang];
+            
+            for (const [key, value] of Object.entries(langData)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = value;
+                    } else {
+                        element.textContent = value;
+                    }
+                }
+            }
+            
+            // Update page title
+            document.title = `${langData.name} - ${langData.tagline}`;
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Initialize with saved language or default to English
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            switchLanguage(savedLang);
+            
+            // Add smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
