@@ -33,8 +33,8 @@ Passionate Full-Stack Developer with expertise in the React/Next.js ecosystem an
   - Node.js
   - Git
   - GitHub
-  - Vercel
   - PostgreSQL
+  - Vercel
   - Supabase
   - Vite
   - VS Code
